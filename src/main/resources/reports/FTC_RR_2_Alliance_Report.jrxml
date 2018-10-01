@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FTC_RR_2_Alliance_Report" pageWidth="792" pageHeight="612" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7255609a-89cc-4d57-88f1-f2ac961e495f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<parameter name="subReport" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<queryString language="jsonql">
+		<![CDATA[]]>
+	</queryString>
+	<field name="event" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="event"/>
+		<fieldDescription><![CDATA[event]]></fieldDescription>
+	</field>
+	<field name="revision" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="revision"/>
+		<fieldDescription><![CDATA[revision]]></fieldDescription>
+	</field>
+	<field name="number" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="number"/>
+		<fieldDescription><![CDATA[number]]></fieldDescription>
+	</field>
+	<field name="field" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="field"/>
+		<fieldDescription><![CDATA[field]]></fieldDescription>
+	</field>
+	<field name="red" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="red"/>
+		<fieldDescription><![CDATA[red]]></fieldDescription>
+	</field>
+	<field name="blue" class="java.lang.String">
+		<property name="net.sf.jasperreports.jsonql.field.expression" value="blue"/>
+		<fieldDescription><![CDATA[blue]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="572" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="22" width="370" height="550" uuid="efec533c-66ba-41ad-a034-b92fbd9808c9"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<subreport overflowType="Stretch">
+					<reportElement x="0" y="0" width="370" height="550" uuid="0456ca8a-a91e-49a8-bca0-6916816c9238"/>
+					<subreportParameter name="alliance">
+						<subreportParameterExpression><![CDATA["red"]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="field">
+						<subreportParameterExpression><![CDATA[$F{field}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="number">
+						<subreportParameterExpression><![CDATA[$F{number}]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("red")]]></dataSourceExpression>
+					<subreportExpression><![CDATA[$P{subReport}]]></subreportExpression>
+				</subreport>
+			</frame>
+			<frame>
+				<reportElement x="380" y="22" width="370" height="550" uuid="8f146005-8cd0-4e98-937a-25982f901ed0"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<subreport overflowType="Stretch">
+					<reportElement x="0" y="0" width="370" height="550" uuid="a1650c7f-7b97-49df-83ac-c1b7566ccd1b"/>
+					<subreportParameter name="alliance">
+						<subreportParameterExpression><![CDATA["blue"]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="field">
+						<subreportParameterExpression><![CDATA[$F{field}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="number">
+						<subreportParameterExpression><![CDATA[$F{number}]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("blue")]]></dataSourceExpression>
+					<subreportExpression><![CDATA[$P{subReport}]]></subreportExpression>
+				</subreport>
+			</frame>
+			<textField>
+				<reportElement x="76" y="0" width="600" height="30" uuid="85540757-77a7-458a-a49f-16f56a0278c4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{event}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="561" y="0" width="189" height="24" uuid="896d8dbe-51e0-41b2-9ec6-89428c28762d"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["v" + $F{revision}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
